@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.mdod.dao.user.UserDao">
+    <resultMap id="UserResultMap" type="com.ztesoft.mdod.model.user.User">
+        <id property="id" column="ID" />
+        <result property="name" column="NAME" />
+        <result property="age" column="AGE" />
+        <result property="tag" column="TAG" />
+    </resultMap>
+
+    <insert id="insertUser" parameterType="com.ztesoft.mdod.model.user.User">
+        INSERT INTO LYG_USER2(name, age,tag)
+        VALUES (#{user.name}, #{user.age}, #{user.tag})
+    </insert>
+
+    <select id="getAllUsers" resultType="com.ztesoft.mdod.model.user.User">
+        SELECT * FROM LYG_USER2
+    </select>
+
+</mapper>
